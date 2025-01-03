@@ -2,7 +2,8 @@ import openai
 import customtkinter as ctk
 from tkinter import messagebox
 
-openai.api_key = "your_openai_api_key"
+openai.api_key = ""
+
 def summarize_text(input_text):
     try:
         response = openai.ChatCompletion.create(
@@ -17,7 +18,6 @@ def summarize_text(input_text):
         return response['choices'][0]['message']['content'].strip()
     except Exception as e:
         return f"Error: {e}"
-
 def summarize():
     input_text = text_input.get("1.0", "end").strip()
     if not input_text:
